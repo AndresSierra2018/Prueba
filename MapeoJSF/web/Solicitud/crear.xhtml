@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Crear Solicitud</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear Solicitud"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdSolicitud:" for="idSolicitud" />
+                    <h:inputText id="idSolicitud" value="#{solicitudController.solicitud.idSolicitud}" title="IdSolicitud" required="true" requiredMessage="The IdSolicitud field is required."/>
+                    <h:outputLabel value="FechaSolicitud:" for="fechaSolicitud" />
+                    <h:inputText id="fechaSolicitud" value="#{solicitudController.solicitud.fechaSolicitud}" title="FechaSolicitud" required="true" requiredMessage="The FechaSolicitud field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="HoraSolicitud:" for="horaSolicitud" />
+                    <h:inputText id="horaSolicitud" value="#{solicitudController.solicitud.horaSolicitud}" title="HoraSolicitud" required="true" requiredMessage="The HoraSolicitud field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="TipoSolicitud:" for="tipoSolicitud" />
+                    <h:inputText id="tipoSolicitud" value="#{solicitudController.solicitud.tipoSolicitud}" title="TipoSolicitud" />
+                    <h:outputLabel value="Descripcion:" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{solicitudController.solicitud.descripcion}" title="Descripcion" />
+                    <h:outputLabel value="Estado:" for="estado" />
+                    <h:inputText id="estado" value="#{solicitudController.solicitud.estado}" title="Estado" />
+                    <h:outputLabel value="EquipoId:" for="equipoId" />
+                    <h:selectOneMenu id="equipoId" value="#{solicitudController.equipo.idEquipo}" title="EquipoId" required="true" requiredMessage="The EquipoId field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{equipoController.listarEquipos()}" var="equipo" itemLabel="#{equipo.placa}" itemValue="#{equipo.idEquipo}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="OperadorId:" for="operadorId" />
+                    <h:selectOneMenu id="operadorId" value="#{solicitudController.operador.idUsuario}" title="OperadorId" required="true" requiredMessage="The OperadorId field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{usuarioController.listarUsuarios()}" var="operador" itemLabel="#{operador.codigo}" itemValue="#{operador.idUsuario}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="SolicitanteId:" for="solicitanteId" />
+                    <h:selectOneMenu id="solicitanteId" value="#{solicitudController.usuario.idUsuario}" title="SolicitanteId" required="true" requiredMessage="The SolicitanteId field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{usuarioController.listarUsuarios()}" var="solicitante" itemLabel="#{solicitante.codigo}" itemValue="#{solicitante.idUsuario}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton value="Registrar" action="#{solicitudController.registrarSolicitud()}"></h:commandButton>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

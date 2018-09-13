@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Crear RolPermiso</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear RolPermiso"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdRolper:" for="idRolper" />
+                    <h:inputText id="idRolper" value="#{rolpermisoController.rolpermiso.idRolper}" title="IdRolper" required="true" requiredMessage="The IdRolper field is required."/>
+                    <h:outputLabel value="RolesId:" for="rolesId" />
+                    <h:selectOneMenu id="rolesId" value="#{rolpermisoController.rol.idRoles}" title="RolesId" required="true" requiredMessage="The RolesId field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{rolController.listarRoles()}" var="rol" itemLabel="#{rol.nombreRol}" itemValue="#{rol.idRoles}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="PermisosId:" for="permisosId" />
+                    <h:selectOneMenu id="permisosId" value="#{rolpermisoController.permiso.idPermisos}" title="PermisosId" required="true" requiredMessage="The PermisosId field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{controllerPermiso.listarPermisos()}" var="permiso" itemLabel="#{permiso.nombrePermiso}" itemValue="#{permiso.idPermisos}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton value="Registrar" action="#{rolpermisoController.registrarRolesPermisos()}"></h:commandButton>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

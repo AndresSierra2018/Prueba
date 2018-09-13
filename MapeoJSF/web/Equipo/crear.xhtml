@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Crear Equipo</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear Equipo"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdEquipo:" for="idEquipo" />
+                    <h:inputText id="idEquipo" value="#{equipoController.equipo.idEquipo}" title="IdEquipo" required="true" requiredMessage="The IdEquipo field is required."/>
+                    <h:outputLabel value="Placa:" for="placa" />
+                    <h:inputText id="placa" value="#{equipoController.equipo.placa}" title="Placa" required="true" requiredMessage="The Placa field is required."/>
+                    <h:outputLabel value="Tipo:" for="tipo" />
+                    <h:inputText id="tipo" value="#{equipoController.equipo.tipo}" title="Tipo" required="true" requiredMessage="The Tipo field is required."/>
+                    <h:outputLabel value="Marca:" for="marca" />
+                    <h:inputText id="marca" value="#{equipoController.equipo.marca}" title="Marca" />
+                    <h:outputLabel value="Caracteristicas:" for="caracteristicas" />
+                    <h:inputText id="caracteristicas" value="#{equipoController.equipo.caracteristicas}" title="Caracteristicas" />
+                    <h:outputLabel value="UbicacionId:" for="ubicacionId" />
+                    <h:selectOneMenu id="ubicacionId" value="#{equipoController.ubicacion.idUbicacion}" title="UbicacionId" required="true" requiredMessage="The UbicacionId field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{ubicacionController.listarUbicaciones()}" var="ubicacion" itemLabel="#{ubicacion.edificio}" itemValue="#{ubicacion.idUbicacion}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton value="Registrar" action="#{equipoController.registrarEquipo()}"></h:commandButton>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

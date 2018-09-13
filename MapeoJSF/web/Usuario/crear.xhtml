@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Crear Usuario</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear Usuario"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdUsuario:" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{usuarioController.usuario.idUsuario}" title="IdUsuario" required="true" requiredMessage="The IdUsuario field is required."/>
+                    <h:outputLabel value="TipoUsuario:" for="tipoUsuario" />
+                    <h:inputText id="tipoUsuario" value="#{usuarioController.usuario.tipoUsuario}" title="TipoUsuario" required="true" requiredMessage="The TipoUsuario field is required."/>
+                    <h:outputLabel value="AutoridadId:" for="autoridadId" />
+                    <h:inputText id="autoridadId" value="#{usuarioController.usuario.autoridadId}" title="AutoridadId" required="true" requiredMessage="The AutoridadId field is required."/>
+                    <h:outputLabel value="Nombres:" for="nombres" />
+                    <h:inputText id="nombres" value="#{usuarioController.usuario.nombres}" title="Nombres" required="true" requiredMessage="The Nombres field is required."/>
+                    <h:outputLabel value="Apellidos:" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{usuarioController.usuario.apellidos}" title="Apellidos" required="true" requiredMessage="The Apellidos field is required."/>
+                    <h:outputLabel value="Codigo:" for="codigo" />
+                    <h:inputText id="codigo" value="#{usuarioController.usuario.codigo}" title="Codigo" />
+                    <h:outputLabel value="Cargo:" for="cargo" />
+                    <h:inputText id="cargo" value="#{usuarioController.usuario.cargo}" title="Cargo" required="true" requiredMessage="The Cargo field is required."/>
+                    <h:outputLabel value="Email:" for="email" />
+                    <h:inputText id="email" value="#{usuarioController.usuario.email}" title="Email" required="true" requiredMessage="The Email field is required."/>
+                    <h:outputLabel value="Extension:" for="extension" />
+                    <h:inputText id="extension" value="#{usuarioController.usuario.extension}" title="Extension" required="true" requiredMessage="The Extension field is required."/>
+                    <h:outputLabel value="Movil:" for="movil" />
+                    <h:inputText id="movil" value="#{usuarioController.usuario.movil}" title="Movil" required="true" requiredMessage="The Movil field is required."/>
+                    <h:outputLabel value="Contraseña:" for="contraseña" />
+                    <h:inputText id="contraseña" value="#{usuarioController.usuario.contraseña}" title="Contraseña" required="true" requiredMessage="The Contraseña field is required."/>
+                </h:panelGrid>
+                <h:commandButton value="Registrar" action="#{usuarioController.registrarUsuario()}"></h:commandButton>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

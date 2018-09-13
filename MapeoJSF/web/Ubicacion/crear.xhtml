@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Crear Ubicacion</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear Ubicacion"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdUbicacion:" for="idUbicacion" />
+                    <h:inputText id="idUbicacion" value="#{ubicacionController.ubicacion.idUbicacion}" title="IdUbicacion" required="true" requiredMessage="The IdUbicacion field is required."/>
+                    <h:outputLabel value="Edificio:" for="edificio" />
+                    <h:inputText id="edificio" value="#{ubicacionController.ubicacion.edificio}" title="Edificio" />
+                    <h:outputLabel value="Nivel:" for="nivel" />
+                    <h:inputText id="nivel" value="#{ubicacionController.ubicacion.nivel}" title="Nivel" />
+                    <h:outputLabel value="Localizacion:" for="localizacion" />
+                    <h:inputText id="localizacion" value="#{ubicacionController.ubicacion.localizacion}" title="Localizacion" />
+                </h:panelGrid>
+                <h:commandButton value="Registrar" action="#{ubicacionController.registrarUbicacion()}"></h:commandButton>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

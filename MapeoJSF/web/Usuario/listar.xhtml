@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listar Usuario</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Lista Usuarios"/></h1>
+                <h:dataTable value="#{usuarioController.listarUsuarios()}" var="usuario">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdUsuario"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.idUsuario}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="TipoUsuario"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.tipoUsuario}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="AutoridadId"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.autoridadId}"/>
+                    </h:column>
+                    <h:column>  
+                        <f:facet name="header" >
+                            <h:outputText value="Nombres" />
+                        </f:facet>
+                        <h:outputText value="#{usuario.nombres}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Apellidos"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.apellidos}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Codigo"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.codigo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cargo"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.cargo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.email}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Extension"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.extension}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Movil"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.movil}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Contraseña"/>
+                        </f:facet>
+                        <h:outputText value="#{usuario.contraseña}"/>
+                    </h:column>
+                    <h:column >
+                        <f:facet name="header">
+                            <h:outputText value="Acciones">
+                                
+                            </h:outputText>
+                        </f:facet>
+                        <h:commandButton value="Eliminar" action="#{usuarioController.eliminarUsuario(usuario)}"></h:commandButton>
+                        <h:commandButton value="Modificar" action="#{usuarioController.editarUsuario(usuario)}"></h:commandButton>                    
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
